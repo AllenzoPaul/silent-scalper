@@ -105,7 +105,7 @@ resource "aws_s3_bucket_notification" "lambda_trigger" {
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.data_processor.arn
-    events              = ["s3:ObjectCreated:*"]
+    events              = ["s3:ObjectCreated:Put"]
   }
   depends_on = [aws_lambda_permission.allow_s3_invoke]
 }
